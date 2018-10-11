@@ -17,6 +17,8 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateArticleComponent } from './create-article/create-article.component';
+import { UpdateArticleComponent } from './update-article/update-article.component';
+import { DeleteArticleComponent } from './delete-article/delete-article.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CreateArticleComponent } from './create-article/create-article.componen
     NavbarComponent,
     NewsComponent,
     LoginComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    UpdateArticleComponent,
+    DeleteArticleComponent
   ],
   imports: [
     BrowserModule,

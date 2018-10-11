@@ -12,9 +12,12 @@
         </div>
         <div class="card-footer">
           <ul class="list-inline text-right">
-            <li class="list-inline-item"><a class="btn btn-danger" (click)="articleService.delete(article)">Delete</a></li>
-            <li class="list-inline-item"><a class="btn btn-warning" (click)="articleService.update(article)">Update</a></li>
-            <!--<li class="list-inline-item"><a class="btn btn-success" routerLink="coa/news/{{article.id}}">Read</a></li>-->
+            <li class="list-inline-item">
+              <a class="btn btn-danger" (click)="articleService.setArticleData(article)" routerLink="delete/{{article.id}}">Delete</a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-warning" (click)="articleService.setArticleData(article)" routerLink="update/{{article.id}}">Update</a>
+            </li>
           </ul>
         </div>
       </div>

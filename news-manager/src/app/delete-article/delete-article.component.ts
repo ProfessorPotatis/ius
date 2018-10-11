@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ArticleService } from '../article.service';
+import { Article } from '../article';
 
 @Component({
-  selector: 'app-create-article',
-  templateUrl: './create-article.component.html',
-  styleUrls: ['./create-article.component.css']
+  selector: 'app-delete-article',
+  templateUrl: './delete-article.component.html',
+  styleUrls: ['./delete-article.component.css']
 })
-export class CreateArticleComponent implements OnInit {
-  articleData = {};
+export class DeleteArticleComponent implements OnInit {
+  newsArticle: Article[];
 
   constructor(
     private articleService: ArticleService,
@@ -17,10 +18,11 @@ export class CreateArticleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.newsArticle = this.articleService.getArticleData();
   }
 
-  createArticle() {
-    this.articleService.create(this.articleData)
+  deleteArticle() {
+    this.articleService.delete(this.newsArticle)
       .subscribe(
         res => {
           console.log(res);
@@ -29,4 +31,5 @@ export class CreateArticleComponent implements OnInit {
         err => console.log(err)
       )
   }
+
 }

@@ -8,6 +8,7 @@ import { Article } from './article';
 @Injectable()
 export class ArticleService {
   private newsUrl = 'https://demo-fpapi.iusin.se/coa/news';
+  chosenArticle: Article[];
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +20,15 @@ export class ArticleService {
       );
   }
 
-  createArticle(article) {
+  setArticleData(article) {
+    this.chosenArticle = article;
+  }
+
+  getArticleData() {
+    return this.chosenArticle;
+  }
+
+  create(article) {
     return this.http
       .post<any>(this.newsUrl, article)
       .pipe(
@@ -27,15 +36,17 @@ export class ArticleService {
       );
   }
 
-  read(article) {
-    alert(`You clicked the: ${article.id}`);
-  }
-
   update(article) {
-    alert(`You clicked the: ${article.id}`);
+    console.log(article.id);
+    return this.http
+      .put<any>(this.newsUrl + '/' + article.id, article)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   delete(article) {
+    console.log(article.id);
     return this.http
       .delete<Article[]>(this.newsUrl + '/' + article.id)
       .pipe(

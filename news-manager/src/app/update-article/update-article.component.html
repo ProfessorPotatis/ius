@@ -1,0 +1,31 @@
+<form class="text-center p-5">
+  <h4>Update article</h4>
+
+  <div class="form-group">
+    <label class="sr-only" for="id">Id</label>
+    <input [(ngModel)]="newsArticle.id" name="id" type="number" class="form-control" placeholder="id" readonly>
+  </div>
+
+  <!-- Title -->
+  <div class="form-group">
+    <label class="sr-only" for="title">Title</label>
+    <input [(ngModel)]="newsArticle.title" name="title" type="text" class="form-control" placeholder="title" required>
+  </div>
+
+  <!-- Excerpt -->
+  <div class="form-group">
+    <label class="sr-only" for="excerpt">Excerpt</label>
+    <quill-editor [(ngModel)]="newsArticle.excerpt" name="excerpt" format="text" placeholder="excerpt"></quill-editor>
+  </div>
+
+  <!-- Post -->
+  <div class="form-group">
+    <label class="sr-only" for="post">Post</label>
+    <quill-editor [(ngModel)]="newsArticle.post" name="post" format="text" placeholder="post"></quill-editor>
+  </div>
+
+  <!-- Update button -->
+  <div class="form-group">
+    <button class="btn btn-outline-warning" type="button" (click)="updateArticle()">Update</button>
+  </div>
+</form>

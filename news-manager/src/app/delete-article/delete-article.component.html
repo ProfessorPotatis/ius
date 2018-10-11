@@ -1,0 +1,31 @@
+<form class="text-center p-5">
+  <h4>Delete article</h4>
+
+  <div class="form-group">
+    <label class="sr-only" for="id">Id</label>
+    <input [(ngModel)]="newsArticle.id" name="id" type="number" class="form-control" placeholder="id" readonly>
+  </div>
+
+  <!-- Title -->
+  <div class="form-group">
+    <label class="sr-only" for="title">Title</label>
+    <input [(ngModel)]="newsArticle.title" name="title" type="text" class="form-control" placeholder="title" readonly>
+  </div>
+
+  <!-- Excerpt -->
+  <div class="form-group">
+    <label class="sr-only" for="excerpt">Excerpt</label>
+    <input [(ngModel)]="newsArticle.excerpt" name="excerpt" type="text" class="form-control" placeholder="excerpt" readonly>
+  </div>
+
+  <!-- Post -->
+  <div class="form-group">
+    <label class="sr-only" for="post">Post</label>
+    <input [(ngModel)]="newsArticle.post" name="post" type="text" class="form-control" placeholder="post" readonly>
+  </div>
+
+  <!-- Deletete button -->
+  <div class="form-group">
+    <button class="btn btn-outline-danger" type="button" (click)="deleteArticle()">Delete</button>
+  </div>
+</form>
