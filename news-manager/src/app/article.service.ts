@@ -2,18 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from './auth.service';
 import { Article } from './article';
 
 @Injectable()
 export class ArticleService {
   private newsUrl = 'https://demo-fpapi.iusin.se/coa/news';
+  private cookie = this.cookie.get('access_token');
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private _auth: AuthService,
+    private cookie: CookieService) { }
 
   getArticles() {
     return this.http
       .get<Article[]>(this.newsUrl, {
-        headers: {'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImNvYSIsInN1YiI6OCwiaXNzIjoiaHR0cHM6XC9cL2RlbW8tZnBhcGkuaXVzaW4uc2VcL2F1dGgiLCJpYXQiOjE1MzkxNzk1MDgsImV4cCI6MTUzOTE4MzEwOCwibmJmIjoxNTM5MTc5NTA4LCJqdGkiOiI1YUtkUnFQQWhEb3hmVEIyIn0.6YEnQDMlSbnA3LydO6JWUMtJR1lHpirgW3LRVAuastQ'}
+        headers: {'Authorization': 'Bearer ' + this.cookie}
       })
       .pipe(
         catchError(this.handleError)
@@ -31,7 +38,7 @@ export class ArticleService {
   delete(article) {
     return this.http
       .delete<Article[]>(this.newsUrl + '/' + article.id, {
-        headers: {'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyUm9sZSI6ImNvYSIsInN1YiI6OCwiaXNzIjoiaHR0cHM6XC9cL2RlbW8tZnBhcGkuaXVzaW4uc2VcL2F1dGgiLCJpYXQiOjE1MzkxNzk1MDgsImV4cCI6MTUzOTE4MzEwOCwibmJmIjoxNTM5MTc5NTA4LCJqdGkiOiI1YUtkUnFQQWhEb3hmVEIyIn0.6YEnQDMlSbnA3LydO6JWUMtJR1lHpirgW3LRVAuastQ'}
+        headers: {'Authorization': 'Bearer ' + this.cookie}
       })
       .pipe(
         catchError(this.handleError)

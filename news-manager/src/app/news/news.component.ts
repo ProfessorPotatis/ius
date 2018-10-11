@@ -16,8 +16,7 @@ export class NewsComponent implements OnInit, OnDestroy {
   error: any;
 
   constructor(
-    public articleService: ArticleService,
-    //public authService: AuthService
+    public articleService: ArticleService
   ) { }
 
   ngOnInit() {

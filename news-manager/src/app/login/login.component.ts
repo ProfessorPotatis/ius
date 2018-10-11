@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.loginUserData)
       .subscribe(
         res => {
-          this.cookie.set('jwt', res);
+          this.cookie.set('access_token', res);
         },
         err => console.log(err)
       )
