@@ -19,6 +19,14 @@ export class ArticleService {
       );
   }
 
+  createArticle(article) {
+    return this.http
+      .post<any>(this.newsUrl, article)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   read(article) {
     alert(`You clicked the: ${article.id}`);
   }

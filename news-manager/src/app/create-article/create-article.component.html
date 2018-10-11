@@ -1,0 +1,26 @@
+<form class="text-center p-5">
+  <h4>Create an article</h4>
+
+  <!-- Title -->
+  <div class="form-group">
+    <label class="sr-only" for="title">Title</label>
+    <input [(ngModel)]="articleData.title" name="title" type="text" class="form-control" placeholder="Title" required>
+  </div>
+
+  <!-- Excerpt -->
+  <div class="form-group">
+    <label class="sr-only" for="excerpt">Excerpt</label>
+    <quill-editor [(ngModel)]="articleData.excerpt" name="excerpt" format="text"></quill-editor>
+  </div>
+
+  <!-- Post -->
+  <div class="form-group">
+    <label class="sr-only" for="post">Post</label>
+    <quill-editor [(ngModel)]="articleData.post" name="post" format="text"></quill-editor>
+  </div>
+
+  <!-- Create button -->
+  <div class="form-group">
+    <button class="btn btn-outline-success" type="button" (click)="createArticle()">Create</button>
+  </div>
+</form>
