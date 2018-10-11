@@ -3,25 +3,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from './auth.service';
 import { Article } from './article';
 
 @Injectable()
 export class ArticleService {
   private newsUrl = 'https://demo-fpapi.iusin.se/coa/news';
-  private cookie = this.cookie.get('access_token');
 
-  constructor(
-    private http: HttpClient,
-    private _auth: AuthService,
-    private cookie: CookieService) { }
+  constructor(private http: HttpClient) { }
 
   getArticles() {
     return this.http
-      .get<Article[]>(this.newsUrl, {
-        headers: {'Authorization': 'Bearer ' + this.cookie}
-      })
+      .get<Article[]>(this.newsUrl)
       .pipe(
         catchError(this.handleError)
       );
@@ -37,9 +29,7 @@ export class ArticleService {
 
   delete(article) {
     return this.http
-      .delete<Article[]>(this.newsUrl + '/' + article.id, {
-        headers: {'Authorization': 'Bearer ' + this.cookie}
-      })
+      .delete<Article[]>(this.newsUrl + '/' + article.id)
       .pipe(
         catchError(this.handleError)
       );

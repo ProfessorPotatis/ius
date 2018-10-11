@@ -1,5 +1,4 @@
-<!--<ng-template [ngIf]="authService.isAuthenticated">-->
-  <h3 class="text-center">News Articles</h3>
+<h3 class="text-center">News Articles</h3>
 
 <div class="row">
 <div class="col">
@@ -23,21 +22,6 @@
   </div>
 </div>
 </div>
-<!--</ng-template>-->
-
-<!-- We are going to use the authService.isLoggedIn method to see if the user is logged in or not. If they are not logged in we'll encourage them to log in, otherwise, if they are authenticated, we'll provide a handy link to private deals. We haven't implemented the authService yet, so don't worry about the functionality just yet -->
-<!--<div class="col-sm-12" *ngIf="!authService.isAuthenticated">
-  <div class="jumbotron text-center">
-    <h2>Log in to create, read, update and delete news articles.</h2>
-  </div>
-</div>
-
-<div class="col-sm-12" *ngIf="authService.isAuthenticated">
-  <div class="jumbotron text-center">
-    <h2>View News Articles</h2>
-    <a class="btn btn-lg btn-success" routerLink="/coa/news">News Articles</a>
-  </div>
-</div>-->
 
 <!-- If an error occurs, we'll show an error message -->
 <div class="col-sm-12 alert alert-danger" *ngIf="error">
