@@ -1,4 +1,9 @@
 <div class="content">
+  <!-- If an error occurs, we'll show an error message -->
+  <div class="col-sm-12 alert alert-danger" *ngIf="error">
+    <strong>Oops!</strong> An error occurred fetching data. Please try again.
+  </div>
+  
   <div class="card-columns">
     <div *ngFor="let article of newsArticles">
       <div class="card">
@@ -14,10 +19,5 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- If an error occurs, we'll show an error message -->
-  <div class="col-sm-12 alert alert-danger" *ngIf="error">
-    <strong>Oops!</strong> An error occurred fetching data. Please try again.
   </div>
 </div>

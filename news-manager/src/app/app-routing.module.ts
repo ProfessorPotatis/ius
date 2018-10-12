@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'coa/news', pathMatch: 'full'},
   {path: 'auth', component: LoginComponent},
   {path: 'coa/news', component: NewsComponent, canActivate: [AuthGuard]},
-  {path: 'create', component: CreateArticleComponent, canActivate: [AuthGuard]},
+  {path: 'coa/news/create', component: CreateArticleComponent, canActivate: [AuthGuard]},
   {path: 'coa/news/read/:id', component: ReadArticleComponent, canActivate: [AuthGuard]},
   {path: 'coa/news/update/:id', component: UpdateArticleComponent, canActivate: [AuthGuard]},
   {path: 'coa/news/delete/:id', component: DeleteArticleComponent, canActivate: [AuthGuard]}

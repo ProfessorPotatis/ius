@@ -16,17 +16,16 @@ Bootstrap 4
     * Creating/adding a news post: CreateArticleComponent
     * Editing a news post: UpdateArticleComponent
     * Deleting a post: DeleteArticleComponent
-        * Article, ArticleService, ReadArticleComponent.
+        * ArticleService, ReadArticleComponent.
 * A routing module:
     * AppRoutingModule, AuthGuard.
 * Reactive Forms is used when creating and editing news posts.
 * All form controls with validation show feedback if invalid.
 * A pipe:
     * KeepHtmlPipe.
+* One TypeScript interface implemented:
+    * Article.
 
 ### Extra tasks (optional)
 * A Http Interceptor:
     * TokenInterceptorService.
-
-## TODO (mandatory)
-* At least one TypeScript interface should be implemented.

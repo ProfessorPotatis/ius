@@ -9,3 +9,16 @@ body {
   padding: 3rem 1.5rem;
   text-align: center;
 }
+
+.crud-form {
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 15px;
+  margin: auto;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.requiredField {
+  background-color: black;
+  color: white;
+  padding: 3px;
+}
