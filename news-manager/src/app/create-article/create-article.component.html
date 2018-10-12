@@ -1,31 +1,39 @@
+<!-- If an error occurs, we'll show an error message -->
+<div class="col-sm-12 alert alert-danger" *ngIf="error">
+  <strong>Oops!</strong> An error occurred. Please try again by filling out all required fields.
+</div>
+
 <form class="col-7 p-3 crud-form">
   <h4>Create an article</h4>
 
   <!-- Title -->
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input [(ngModel)]="articleData.title" name="title" type="text" class="form-control" required>
-  </div>
+  <label for="title">Title</label>
+  <input type="text" [formControl]="createForm.controls.title" class="form-control" required maxlength="255">
+  <p><span *ngIf="!createForm.controls.title.valid" class="requiredField">
+    Title is required
+  </span></p>
 
   <!-- Excerpt -->
-  <div class="form-group">
-    <label for="excerpt">Excerpt</label>
-    <quill-editor [(ngModel)]="articleData.excerpt" name="excerpt" format="text"></quill-editor>
-  </div>
+  <label for="excerpt">Excerpt</label>
+  <quill-editor [formControl]="createForm.controls.excerpt" name="excerpt" max-length="255"></quill-editor>
+  <p><span *ngIf="!createForm.controls.excerpt.valid" class="requiredField">
+    Excerpt has a max length of 255 characters
+  </span></p>
 
   <!-- Post -->
-  <div class="form-group">
-    <label for="post">Post</label>
-    <quill-editor [(ngModel)]="articleData.post" name="post" format="text"></quill-editor>
-  </div>
+  <label for="post">Post</label>
+  <quill-editor [formControl]="createForm.controls.post" name="post"></quill-editor>
+  <p><span *ngIf="!createForm.controls.post.valid" class="requiredField">
+    Post is required
+  </span></p>
 
   <!-- Create button -->
-  <div class="form-group text-right">
-    <button class="btn btn-outline-success" type="button" (click)="createArticle()">Create</button>
+  <div class="form-group text-right" *ngIf="!createForm.controls.title.valid || !createForm.controls.excerpt.valid || !createForm.controls.post.valid;else other_content">
+    <button class="btn btn-success disabled" type="button">Create</button>
   </div>
+  <ng-template #other_content>
+    <div class="text-right">
+      <button class="btn btn-success" type="button" (click)="createArticle()">Create</button>
+    </div>
+  </ng-template>
 </form>
-
-<!-- If an error occurs, we'll show an error message -->
-<div class="col-sm-12 alert alert-danger" *ngIf="error">
-  <strong>Oops!</strong> An error occurred fetching data. Please try again.
-</div>

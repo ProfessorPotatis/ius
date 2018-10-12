@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { QuillModule } from 'ngx-quill';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { ReadArticleComponent } from './read-article/read-article.component';
     NgbModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    QuillModule
+    QuillModule,
+    ReactiveFormsModule
   ],
   providers: [
     ArticleService,
