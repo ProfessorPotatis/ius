@@ -16,9 +16,9 @@ Bootstrap 4
     * Creating/adding a news post: CreateArticleComponent
     * Editing a news post: UpdateArticleComponent
     * Deleting a post: DeleteArticleComponent
-    * Article, ArticleService.
+        * Article, ArticleService.
 * A routing module:
-    * AppRoutingModule.
+    * AppRoutingModule, AuthGuard.
 * A pipe:
     * KeepHtmlPipe.
 
