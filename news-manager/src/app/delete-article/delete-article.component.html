@@ -1,9 +1,9 @@
-<form class="text-center p-5">
+<form class="col-7 p-3 crud-form">
   <h4>Delete article</h4>
 
   <div class="form-group">
     <label class="sr-only" for="id">Id</label>
-    <input [(ngModel)]="newsArticle.id" name="id" type="number" class="form-control" placeholder="id" readonly>
+    <input [(ngModel)]="newsArticle.id" name="id" type="number" class="form-control-plaintext" placeholder="id" readonly>
   </div>
 
   <!-- Title -->
@@ -24,8 +24,13 @@
     <input [(ngModel)]="newsArticle.post" name="post" type="text" class="form-control" placeholder="post" readonly>
   </div>
 
-  <!-- Deletete button -->
-  <div class="form-group">
+  <!-- Delete button -->
+  <div class="form-group text-right">
     <button class="btn btn-outline-danger" type="button" (click)="deleteArticle()">Delete</button>
   </div>
 </form>
+
+<!-- If an error occurs, we'll show an error message -->
+<div class="col-sm-12 alert alert-danger" *ngIf="error">
+  <strong>Oops!</strong> An error occurred fetching data. Please try again.
+</div>

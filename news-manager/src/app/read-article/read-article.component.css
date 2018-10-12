@@ -1,0 +1,15 @@
+.article {
+  margin: auto;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+
+.article-title {
+  text-align: center;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  border-bottom: 1px solid #d9dadb;
+}
+
+.article-post {
+  text-align: justify;
+}

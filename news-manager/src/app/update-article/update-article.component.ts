@@ -11,6 +11,7 @@ import { Article } from '../article';
 })
 export class UpdateArticleComponent implements OnInit {
   newsArticle: Article[];
+  error: any;
 
   constructor(
     private articleService: ArticleService,
@@ -25,10 +26,9 @@ export class UpdateArticleComponent implements OnInit {
     this.articleService.update(this.newsArticle)
       .subscribe(
         res => {
-          console.log(res);
           this.router.navigate(['/coa/news']);
         },
-        err => console.log(err)
+        err => this.error = err
       )
   }
 

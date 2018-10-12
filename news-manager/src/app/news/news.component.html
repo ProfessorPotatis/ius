@@ -1,33 +1,23 @@
-<h3 class="text-center">News Articles</h3>
-
-<div class="row">
-<div class="col">
+<div class="content">
   <div class="card-columns">
     <div *ngFor="let article of newsArticles">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title" [innerHTML]="article.title | keepHtml"></h3>
-          <h6 class="card-subtitle" [innerHTML]="article.excerpt | keepHtml"></h6>
-          <p class="card-text" [innerHTML]="article.post | keepHtml"></p>
-          <!--<p>{{ article.post }}</p>-->
-        </div>
-        <div class="card-footer">
-          <ul class="list-inline text-right">
-            <li class="list-inline-item">
-              <a class="btn btn-danger" (click)="articleService.setArticleData(article)" routerLink="delete/{{article.id}}">Delete</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="btn btn-warning" (click)="articleService.setArticleData(article)" routerLink="update/{{article.id}}">Update</a>
-            </li>
-          </ul>
+          <h3 class="card-title news-title" [innerHTML]="article.title | keepHtml"></h3>
+          <p class="card-subtitle" [innerHTML]="article.excerpt | keepHtml"></p>
+
+          <div class="btn-group" role="group" aria-label="RUD buttons">
+            <a class="btn btn-danger btn-sm" (click)="articleService.setArticleData(article)" routerLink="delete/{{article.id}}">Delete</a>
+            <a class="btn btn-warning btn-sm" (click)="articleService.setArticleData(article)" routerLink="update/{{article.id}}">Update</a>
+            <a class="btn btn-success btn-sm" (click)="articleService.setArticleData(article)" routerLink="read/{{article.id}}">Read</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<!-- If an error occurs, we'll show an error message -->
-<div class="col-sm-12 alert alert-danger" *ngIf="error">
-  <strong>Oops!</strong> An error occurred fetching data. Please try again.
+  <!-- If an error occurs, we'll show an error message -->
+  <div class="col-sm-12 alert alert-danger" *ngIf="error">
+    <strong>Oops!</strong> An error occurred fetching data. Please try again.
+  </div>
 </div>

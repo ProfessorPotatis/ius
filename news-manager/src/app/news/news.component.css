@@ -1,1 +1,12 @@
+.content {
+  padding: 20px;
+}
 
+.news-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: bold;
+}
+
+.card {
+  box-shadow: 5px 5px 10px rgba(0,0,0, 0.4);
+}

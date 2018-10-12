@@ -1,0 +1,7 @@
+<div class="article col-7 p-3">
+  <!-- Title -->
+  <h1 class="article-title">{{newsArticle.title}}</h1>
+
+  <!-- Post -->
+  <p class="article-post" [innerHTML]="newsArticle.post | keepHtml"></p>
+</div>

@@ -1,10 +1,11 @@
-<form class="text-center p-5">
+<form class="form-login">
+  <img class="mb-4" src="../assets/img/logo72.png" alt="">
   <h4>Sign in</h4>
 
   <!-- Username -->
   <div class="form-group">
     <label class="sr-only" for="username">Username</label>
-    <input [(ngModel)]="loginUserData.username" name="username" type="text" class="form-control" placeholder="Username" required>
+    <input [(ngModel)]="loginUserData.username" name="username" type="text" class="form-control" placeholder="Username" required autofocus>
   </div>
 
   <!-- Password -->
@@ -15,6 +16,6 @@
 
   <!-- Sign in button -->
   <div class="form-group">
-    <button class="btn btn-outline-success" type="button" (click)="loginUser()">Log in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="loginUser()">Log in</button>
   </div>
 </form>

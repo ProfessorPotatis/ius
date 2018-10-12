@@ -20,6 +20,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { DeleteArticleComponent } from './delete-article/delete-article.component';
 import { KeepHtmlPipe } from './keep-html.pipe';
+import { ReadArticleComponent } from './read-article/read-article.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { KeepHtmlPipe } from './keep-html.pipe';
     CreateArticleComponent,
     UpdateArticleComponent,
     DeleteArticleComponent,
-    KeepHtmlPipe
+    KeepHtmlPipe,
+    ReadArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { Article } from '../article';
 })
 export class DeleteArticleComponent implements OnInit {
   newsArticle: Article[];
+  error: any;
 
   constructor(
     private articleService: ArticleService,
@@ -25,10 +26,9 @@ export class DeleteArticleComponent implements OnInit {
     this.articleService.delete(this.newsArticle)
       .subscribe(
         res => {
-          console.log(res);
           this.router.navigate(['/coa/news']);
         },
-        err => console.log(err)
+        err => this.error = err
       )
   }
 
