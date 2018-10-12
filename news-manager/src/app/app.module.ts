@@ -19,6 +19,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import { UpdateArticleComponent } from './update-article/update-article.component';
 import { DeleteArticleComponent } from './delete-article/delete-article.component';
+import { KeepHtmlPipe } from './keep-html.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DeleteArticleComponent } from './delete-article/delete-article.componen
     LoginComponent,
     CreateArticleComponent,
     UpdateArticleComponent,
-    DeleteArticleComponent
+    DeleteArticleComponent,
+    KeepHtmlPipe
   ],
   imports: [
     BrowserModule,

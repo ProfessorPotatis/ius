@@ -6,8 +6,9 @@
     <div *ngFor="let article of newsArticles">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">{{ article.title | uppercase }}</h3>
-          <h6 class="card-subtitle">{{ article.excerpt }}</h6>
+          <h3 class="card-title" [innerHTML]="article.title | keepHtml"></h3>
+          <h6 class="card-subtitle" [innerHTML]="article.excerpt | keepHtml"></h6>
+          <p class="card-text" [innerHTML]="article.post | keepHtml"></p>
           <!--<p>{{ article.post }}</p>-->
         </div>
         <div class="card-footer">
