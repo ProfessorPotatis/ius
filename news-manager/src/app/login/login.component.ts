@@ -12,6 +12,7 @@ import { AuthService } from '../auth.service';
 
 export class LoginComponent implements OnInit {
   loginUserData = {};
+  error: any;
 
   constructor(
     private _auth: AuthService,
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
           this.cookie.set('access_token', res);
           this.router.navigate(['/coa/news']);
         },
-        err => console.log(err)
+        err => this.error = err
       )
   }
 

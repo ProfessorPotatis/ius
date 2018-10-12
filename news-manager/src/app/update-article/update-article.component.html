@@ -1,37 +1,46 @@
+<!-- If an error occurs, we'll show an error message -->
+<div class="col-sm-12 alert alert-danger" *ngIf="error">
+  <strong>Oops!</strong> An error occurred. Please try again by filling out all required fields.
+</div>
+
 <form class="col-7 p-3 crud-form">
   <h4>Update article</h4>
 
-  <div class="form-group">
-    <label class="sr-only" for="id">Id</label>
-    <input [(ngModel)]="newsArticle.id" name="id" type="number" class="form-control-plaintext" placeholder="id" readonly>
-  </div>
+  <!-- Id -->
+  <label for="id">Id</label>
+  <input type="text" [(ngModel)]="newsArticle.id" [formControl]="updateForm.controls.id" class="form-control-plaintext" readonly>
+  <p><span *ngIf="!updateForm.controls.id.valid" class="requiredField">
+    Id is required
+  </span></p>
 
   <!-- Title -->
-  <div class="form-group">
-    <label class="sr-only" for="title">Title</label>
-    <input [(ngModel)]="newsArticle.title" name="title" type="text" class="form-control" placeholder="title" required>
-  </div>
+  <label for="title">Title</label>
+  <input type="text" [(ngModel)]="newsArticle.title" [formControl]="updateForm.controls.title" class="form-control" required maxlength="255">
+  <p><span *ngIf="!updateForm.controls.title.valid" class="requiredField">
+    Title is required
+  </span></p>
 
   <!-- Excerpt -->
-  <div class="form-group">
-    <label class="sr-only" for="excerpt">Excerpt</label>
-    <quill-editor [(ngModel)]="newsArticle.excerpt" name="excerpt" format="text" placeholder="excerpt"></quill-editor>
-  </div>
+  <label for="excerpt">Excerpt</label>
+  <quill-editor [(ngModel)]="newsArticle.excerpt" [formControl]="updateForm.controls.excerpt" name="excerpt" max-length="255"></quill-editor>
+  <p><span *ngIf="!updateForm.controls.excerpt.valid" class="requiredField">
+    Excerpt has a max length of 255 characters
+  </span></p>
 
   <!-- Post -->
-  <div class="form-group">
-    <label class="sr-only" for="post">Post</label>
-    <quill-editor [(ngModel)]="newsArticle.post" name="post" format="text" placeholder="post"></quill-editor>
-  </div>
+  <label for="post">Post</label>
+  <quill-editor [(ngModel)]="newsArticle.post" [formControl]="updateForm.controls.post" name="post"></quill-editor>
+  <p><span *ngIf="!updateForm.controls.post.valid" class="requiredField">
+    Post is required
+  </span></p>
 
   <!-- Update button -->
-  <div class="form-group text-right">
-    <button class="btn btn-outline-warning" type="button" (click)="updateArticle()">Update</button>
+  <div class="form-group text-right" *ngIf="!updateForm.controls.title.valid || !updateForm.controls.excerpt.valid || !updateForm.controls.post.valid;else valid_button">
+    <button class="btn btn-warning disabled" type="button">Update</button>
   </div>
+  <ng-template #valid_button>
+    <div class="text-right">
+      <button class="btn btn-warning" type="button" (click)="updateArticle()">Update</button>
+    </div>
+  </ng-template>
 </form>
-
-
-<!-- If an error occurs, we'll show an error message -->
-<div class="col-sm-12 alert alert-danger" *ngIf="error">
-  <strong>Oops!</strong> An error occurred fetching data. Please try again.
-</div>

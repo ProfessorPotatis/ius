@@ -4,3 +4,9 @@
   margin: auto;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
+
+.requiredField {
+  background-color: black;
+  color: white;
+  padding: 3px;
+}

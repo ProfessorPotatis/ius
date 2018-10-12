@@ -28,10 +28,10 @@
   </span></p>
 
   <!-- Create button -->
-  <div class="form-group text-right" *ngIf="!createForm.controls.title.valid || !createForm.controls.excerpt.valid || !createForm.controls.post.valid;else other_content">
+  <div class="form-group text-right" *ngIf="!createForm.controls.title.valid || !createForm.controls.excerpt.valid || !createForm.controls.post.valid;else valid_button">
     <button class="btn btn-success disabled" type="button">Create</button>
   </div>
-  <ng-template #other_content>
+  <ng-template #valid_button>
     <div class="text-right">
       <button class="btn btn-success" type="button" (click)="createArticle()">Create</button>
     </div>

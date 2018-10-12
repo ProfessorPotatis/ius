@@ -19,6 +19,8 @@ Bootstrap 4
         * Article, ArticleService, ReadArticleComponent.
 * A routing module:
     * AppRoutingModule, AuthGuard.
+* Reactive Forms is used when creating and editing news posts.
+* All form controls with validation show feedback if invalid.
 * A pipe:
     * KeepHtmlPipe.
 
@@ -27,6 +29,4 @@ Bootstrap 4
     * TokenInterceptorService.
 
 ## TODO (mandatory)
-* Creating and editing news posts should be done by implementing Reactive Forms.
-* All form controls with validation should show feedback if invalid.
 * At least one TypeScript interface should be implemented.
